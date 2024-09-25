@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ArticleComponentComponent } from "../article-component/article-component.component";
-
+import { cardComponent } from "../card/card.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ArticleComponentComponent],
+  imports: [cardComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Irwin';
+  title = 'Net-Flix Movie';
 }
+

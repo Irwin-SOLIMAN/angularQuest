@@ -1,0 +1,17 @@
+
+<div class="articleCard">
+    <h1>{{article.title}}</h1>
+    <h2>{{article.author}}</h2>
+
+    <p>{{article.content}}</p>
+    
+    @if (article.hasBeenViewed) {<img [src]="article.image" [alt]="article.immageAlt">
+}
+    <button (click)="togglePublication()">Already Viewed</button>
+    <input type="text" [(ngModel)]="article.comment" placeholder="comment">
+    <p>{{article.comment}}</p>
+
+</div>
+
+
+
