@@ -1,14 +1,22 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'card-component',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './card.component.html', 
   styleUrl: './card.component.scss'
 })
 export class cardComponent {
+
+  typeFocus : boolean = true;
+
+  feedbacks : string[] = ["Trop bien", "Bof", "A voir absolument"]
+
+  showComments : boolean = true;
 
   article = {
     title: 'The BATMAN',
@@ -23,4 +31,15 @@ export class cardComponent {
   togglePublication():void {
     this.article.hasBeenViewed = !this.article.hasBeenViewed;
   }
+
+  handleHideComments():void {
+    this.showComments = !this.showComments;
+  }
+   
+  toggleFocus():void {
+    this.typeFocus = !this.typeFocus;
+  }
+
+  
+
 }

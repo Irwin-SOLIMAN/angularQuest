@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { cardComponent } from "../card/card.component";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
