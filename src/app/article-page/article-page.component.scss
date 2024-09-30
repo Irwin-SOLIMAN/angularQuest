@@ -1,0 +1,49 @@
+.article {
+    padding: 5%;
+    .card {
+      background-color: rgb(160, 160, 215);
+      border-radius: 2%;
+      width: 20vw;
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+  
+      h1 {
+        font-size: 1.5rem;
+        text-align: center;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      .isAdminClass {
+        color: red;
+      }
+      p {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      img {
+        width: 90%;
+      }
+      .author {
+        font-weight: bold;
+      }
+    }
+    .popular-article {
+      font-size: 1.5em;
+      text-shadow: 2px 2px 5px gray;
+      font-weight: bold;
+    }
+    button {
+      cursor: pointer;
+      display: flex;
+      margin-top: 5%;
+      padding: 5%;
+    }
+  
+    .buttonsIsAdmin {
+      display: flex;
+      justify-content: space-around;
+      width: 20vw;
+    }
+  }

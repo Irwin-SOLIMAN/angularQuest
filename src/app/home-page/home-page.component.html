@@ -1,0 +1,11 @@
+<p>Le blog de folie ! </p>
+
+@for(article of articles; track $index) {
+    <div class="articleCard">
+        <nav>
+            <a [routerLink]="['/article', article.id]">{{article.title}}</a>
+        </nav>
+    </div>
+    
+
+}
