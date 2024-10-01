@@ -14,25 +14,23 @@ import { Article } from '../method/article';
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss',
 })
-export class ArticlePageComponent{
+export class ArticlePageComponent {
   article!: Article;
   route: ActivatedRoute = inject(ActivatedRoute);
   articleId!: number;
   storeService: StoreService = inject(StoreService);
-  router : Router = inject(Router);
-  
+  router: Router = inject(Router);
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
     });
 
-    const storeLength : number = this.storeService.getArticles().length
-    console.log(storeLength)
-    if(storeLength >= this.articleId) {
-      this.article = this.storeService.getArticleById(this.articleId)
-    }
-    else {
+    const storeLength: number = this.storeService.getArticles().length;
+
+    if (storeLength >= this.articleId) {
+      this.article = this.storeService.getArticleById(this.articleId);
+    } else {
       this.router.navigate(['**']);
     }
   }
@@ -46,6 +44,4 @@ export class ArticlePageComponent{
   toggleIsAdmin(): void {
     this.isAdmin = !this.isAdmin;
   }
-
-
 }
