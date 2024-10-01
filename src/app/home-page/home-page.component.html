@@ -1,11 +1,16 @@
 <p>Le blog de folie !</p>
 
+<p>Le dernier article liké : {{ lastArticleTitleLiked }}</p>
+
 @for(article of articles; track $index) {
 <div class="articleCard">
   <!-- <nav>
     <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
   </nav> -->
-  <app-article-page [article]="article"></app-article-page>
+  <app-article-page
+    [article]="article"
+    (articleLikedTitle)="handleLikedTitle($event)"
+  ></app-article-page>
 </div>
 
 }

@@ -15,8 +15,13 @@ import { ArticlePageComponent } from '../article-page/article-page.component';
 export class HomePageComponent {
   articles: Article[] = [];
   storeService: StoreService = inject(StoreService);
+  lastArticleTitleLiked!: string;
 
   ngOnInit() {
     this.articles = this.storeService.getArticles();
+  }
+
+  handleLikedTitle(title: string) {
+    this.lastArticleTitleLiked = title;
   }
 }

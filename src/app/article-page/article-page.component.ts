@@ -1,7 +1,7 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+// import { ActivatedRoute } from '@angular/router';
 import { ParamMap } from '@angular/router';
 import { Router } from '@angular/router';
 import { StoreService } from '../services/store.service';
@@ -16,12 +16,15 @@ import { Article } from '../method/article';
 })
 export class ArticlePageComponent {
   // article!: Article;
-  route: ActivatedRoute = inject(ActivatedRoute);
+  // route: ActivatedRoute = inject(ActivatedRoute);
   articleId!: number;
   storeService: StoreService = inject(StoreService);
   router: Router = inject(Router);
 
   @Input() article!: Article;
+
+  @Output() articleLikedTitle: EventEmitter<string> =
+    new EventEmitter<string>();
 
   // ngOnInit() {
   //   this.route.paramMap.subscribe((params: ParamMap) => {
@@ -45,5 +48,9 @@ export class ArticlePageComponent {
 
   toggleIsAdmin(): void {
     this.isAdmin = !this.isAdmin;
+  }
+
+  isLiked(): void {
+    this.articleLikedTitle.emit(this.article.title);
   }
 }
