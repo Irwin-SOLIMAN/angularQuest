@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -15,25 +15,27 @@ import { Article } from '../method/article';
   styleUrl: './article-page.component.scss',
 })
 export class ArticlePageComponent {
-  article!: Article;
+  // article!: Article;
   route: ActivatedRoute = inject(ActivatedRoute);
   articleId!: number;
   storeService: StoreService = inject(StoreService);
   router: Router = inject(Router);
 
-  ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.articleId = Number(params.get('id'));
-    });
+  @Input() article!: Article;
 
-    const storeLength: number = this.storeService.getArticles().length;
+  // ngOnInit() {
+  //   this.route.paramMap.subscribe((params: ParamMap) => {
+  //     this.articleId = Number(params.get('id'));
+  //   });
 
-    if (storeLength >= this.articleId) {
-      this.article = this.storeService.getArticleById(this.articleId);
-    } else {
-      this.router.navigate(['**']);
-    }
-  }
+  //   const storeLength: number = this.storeService.getArticles().length;
+
+  //   if (storeLength >= this.articleId) {
+  //     this.article = this.storeService.getArticleById(this.articleId);
+  //   } else {
+  //     this.router.navigate(['**']);
+  //   }
+  // }
 
   togglePublication(): void {
     this.article.isPublished = !this.article.isPublished;

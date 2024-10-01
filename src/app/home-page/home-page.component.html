@@ -2,9 +2,10 @@
 
 @for(article of articles; track $index) {
 <div class="articleCard">
-  <nav>
+  <!-- <nav>
     <a [routerLink]="['/article', article.id]">{{ article.title }}</a>
-  </nav>
+  </nav> -->
+  <app-article-page [article]="article"></app-article-page>
 </div>
 
 }
